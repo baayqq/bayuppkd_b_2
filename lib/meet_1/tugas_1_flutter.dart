@@ -9,6 +9,7 @@ class tugasDua extends StatelessWidget {
       appBar: AppBar(
         title: Text("Profil Saya"),
         backgroundColor: Colors.tealAccent,
+        centerTitle: true,
       ),
       body: Column(
         //crossAxisAlignment: CrossAxisAlignment.start,

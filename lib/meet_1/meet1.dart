@@ -35,6 +35,7 @@ class meetSatu extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
+
         children: [
           Text("Pertemuan"),
           Text("Kelas : Mobile Progaming"),
