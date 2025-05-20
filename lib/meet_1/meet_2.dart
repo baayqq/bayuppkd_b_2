@@ -11,7 +11,6 @@ class meetDua extends StatelessWidget {
         backgroundColor: Colors.greenAccent,
         centerTitle: true,
       ),
-      
     );
   }
 }
