@@ -4,7 +4,7 @@ class mTugaasDua extends StatelessWidget {
   mTugaasDua({super.key});
 
   String deskripsi =
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
+      "There are many variations of passages of Lorem Ipsum available .0ghtly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,17 +21,31 @@ class mTugaasDua extends StatelessWidget {
           CircleAvatar(
             radius: 80,
             backgroundImage: AssetImage("assets/images/pat.jpg"),
-            // child: Text(
-            //   "Bayu Saputra",
-            //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-            // ),
           ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Text(
+                  "BAYU",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
           Container(
             padding: EdgeInsets.all(12.0),
-            margin: EdgeInsets.all(16),
+            margin: EdgeInsets.all(8),
             decoration: BoxDecoration(
-              border: Border.all(width: 2, color: Colors.black),
+              border: Border.all(width: 2, color: Colors.black45),
               color: Colors.green,
+              borderRadius: BorderRadius.all(Radius.circular(12)),
             ),
             //margin: EdgeInsets.all(value),
             child: Row(
@@ -43,13 +57,22 @@ class mTugaasDua extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Icon(Icons.phone),
-                Spacer(),
-                Text("+62 8241 1224 254"),
-              ],
+            padding: EdgeInsets.all(0),
+            child: Container(
+              padding: EdgeInsets.all(12),
+              margin: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                border: Border.all(width: 2, color: Colors.black45),
+                color: Colors.green,
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.phone),
+                  Spacer(),
+                  Text("+62 8241 1224 254"),
+                ],
+              ),
             ),
           ),
           Row(
@@ -57,17 +80,25 @@ class mTugaasDua extends StatelessWidget {
               Expanded(
                 child: Container(
                   padding: EdgeInsets.all(20),
+                  margin: EdgeInsets.all(10),
                   height: 60,
-                  decoration: BoxDecoration(color: Colors.red),
-                  child: Text("Postingan"),
+                  decoration: BoxDecoration(
+                    color: Color(0xffd5ede4),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                  child: Text("Postingan  4"),
                 ),
               ),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.all(20),
+                  margin: EdgeInsets.all(10),
                   height: 60,
-                  decoration: BoxDecoration(color: Colors.yellow),
-                  child: Text("Followers"),
+                  decoration: BoxDecoration(
+                    color: Color(0xff9e9898),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                  child: Text("Followers  86.548"),
                 ),
               ),
             ],
@@ -75,6 +106,9 @@ class mTugaasDua extends StatelessWidget {
           SizedBox(
             child: Padding(padding: EdgeInsets.all(16), child: Text(deskripsi)),
           ),
+          SizedBox(height: 32),
+
+          Expanded(child: Container(color: Colors.green)),
         ],
       ),
     );
