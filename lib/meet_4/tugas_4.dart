@@ -1,15 +1,15 @@
-import 'dart:ffi';
+//import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
-class TugasTigaB extends StatefulWidget {
-  TugasTigaB({super.key});
+class TugasEmpat extends StatefulWidget {
+  TugasEmpat({super.key});
 
   @override
-  State<TugasTigaB> createState() => _TugasTigaState();
+  State<TugasEmpat> createState() => _TugasEmpatState();
 }
 
-class _TugasTigaState extends State<TugasTigaB> {
+class _TugasEmpatState extends State<TugasEmpat> {
   TextEditingController _controllerNama = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
   TextEditingController _controllerTelp = TextEditingController();
@@ -29,15 +29,18 @@ class _TugasTigaState extends State<TugasTigaB> {
           Container(
             padding: EdgeInsets.all(22),
             //margin: EdgeInsets.all(0),
-            color: Color(0xff81E7AF),
+            //color: Color(0xff81E7AF),
             child: Column(
               children: [
                 Row(
                   children: [
-                    Text("nama", style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(
+                      "Username",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 8),
                 TextField(
                   controller: _controllerNama,
                   onChanged: (value) {
@@ -47,6 +50,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                   },
 
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.people_alt_rounded),
                     hintText: "masukan nama",
                     filled: true,
                     border: OutlineInputBorder(
@@ -58,7 +62,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                     ),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 8),
                 Row(
                   children: [
                     Text(
@@ -67,7 +71,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                     ),
                   ],
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 8),
                 TextField(
                   controller: _controllerEmail,
                   onChanged: (value) {
@@ -77,6 +81,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                   },
                   decoration: InputDecoration(
                     hintText: "email",
+                    prefixIcon: Icon(Icons.email),
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -87,7 +92,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                     ),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 8),
                 Row(
                   children: [
                     Text(
@@ -96,7 +101,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                     ),
                   ],
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 8),
                 TextField(
                   controller: _controllerTelp,
                   onChanged: (value) {
@@ -106,6 +111,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                   },
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.phone),
                     hintText: "No. HP",
                     filled: true,
                     border: OutlineInputBorder(
@@ -117,7 +123,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                     ),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 8),
                 Row(
                   children: [
                     Text(
@@ -126,7 +132,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                     ),
                   ],
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 8),
                 TextField(
                   controller: _controllerDeskripsi,
                   onChanged: (value) {
@@ -134,7 +140,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                       _controllerDeskripsi.text = value;
                     });
                   },
-                  maxLines: 4,
+                  maxLines: 2,
                   decoration: InputDecoration(
                     hintText: "deskripsi",
                     filled: true,
@@ -150,26 +156,26 @@ class _TugasTigaState extends State<TugasTigaB> {
               ],
             ),
           ),
-          SizedBox(height: 18),
-          Container(
-            height: 110,
-            width: double.infinity,
-            color: Color(0xff81E7AF),
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Nama: ${_controllerNama.text}'),
-                  Text('Email: ${_controllerEmail.text}'),
-                  Text('Nomor: ${_controllerTelp.text}'),
-                  Text('Deskripsi: ${_controllerDeskripsi.text}'),
-                ],
-              ),
-            ),
-          ),
+          //SizedBox(height: 18),
+          // Container(
+          //   height: 110,
+          //   width: double.infinity,
+          //   color: Color(0xff81E7AF),
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(12.0),
+          //     child: Column(
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       children: [
+          //         Text('Nama: ${_controllerNama.text}'),
+          //         Text('Email: ${_controllerEmail.text}'),
+          //         Text('Nomor: ${_controllerTelp.text}'),
+          //         Text('Deskripsi: ${_controllerDeskripsi.text}'),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -181,7 +187,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                 Card(
                   elevation: 4,
                   child: ListTile(
-                    leading: Image.asset("assets/images/pat.jpg"),
+                    leading: Image.asset("assets/images/ayam.jpg"),
                     shape: CircleBorder(),
                     title: Text("patrik"),
                     subtitle: Text("1.254.000"),
@@ -191,7 +197,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                 Card(
                   elevation: 4,
                   child: ListTile(
-                    leading: Image.asset("assets/images/pat.jpg"),
+                    leading: Image.asset("assets/images/topoki.jpg"),
                     shape: CircleBorder(),
                     title: Text("patrik"),
                     subtitle: Text("1.254.000"),
@@ -201,7 +207,7 @@ class _TugasTigaState extends State<TugasTigaB> {
                 Card(
                   elevation: 4,
                   child: ListTile(
-                    leading: Image.asset("assets/images/pat.jpg"),
+                    leading: Image.asset("assets/images/salmon.jpg"),
                     shape: CircleBorder(),
                     title: Text("patrik"),
                     subtitle: Text("1.254.000"),
@@ -211,7 +217,17 @@ class _TugasTigaState extends State<TugasTigaB> {
                 Card(
                   elevation: 4,
                   child: ListTile(
-                    leading: Image.asset("assets/images/pat.jpg"),
+                    leading: Image.asset("assets/images/burger.jpg"),
+                    shape: CircleBorder(),
+                    title: Text("patrik"),
+                    subtitle: Text("1.254.000"),
+                    trailing: Icon(Icons.add_shopping_cart_sharp),
+                  ),
+                ),
+                Card(
+                  elevation: 4,
+                  child: ListTile(
+                    leading: Image.asset("assets/images/susi.jpg"),
                     shape: CircleBorder(),
                     title: Text("patrik"),
                     subtitle: Text("1.254.000"),
