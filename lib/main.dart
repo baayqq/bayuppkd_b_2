@@ -4,6 +4,7 @@
 // 'package:bayuppkd_b_2/meet_2/meet_2.dart';
 //import 'package:bayuppkd_b_2/meet_3/tugas_3a.dart';
 import 'package:bayuppkd_b_2/meet_4/tugas_4.dart';
+import 'package:bayuppkd_b_2/meet_5/Tugas_5.dart';
 import 'package:bayuppkd_b_2/meet_5/tes.dart';
 import 'package:bayuppkd_b_2/meet_5/tugas5.dart';
 //import 'package:bayuppkd_b_2/meet_1/meet_2.dart';

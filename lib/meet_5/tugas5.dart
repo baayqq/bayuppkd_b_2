@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TugasLima extends StatefulWidget {
-  const TugasLima({super.key});
+class TugasLimaTes extends StatefulWidget {
+  const TugasLimaTes({super.key});
 
   @override
-  State<TugasLima> createState() => _TugasLimaState();
+  State<TugasLimaTes> createState() => _TugasLimaTesState();
 }
 
-class _TugasLimaState extends State<TugasLima> {
+class _TugasLimaTesState extends State<TugasLimaTes> {
   bool _liatNama = false;
 
   @override
