@@ -4,6 +4,8 @@
 // 'package:bayuppkd_b_2/meet_2/meet_2.dart';
 //import 'package:bayuppkd_b_2/meet_3/tugas_3a.dart';
 import 'package:bayuppkd_b_2/meet_4/tugas_4.dart';
+import 'package:bayuppkd_b_2/meet_5/tes.dart';
+import 'package:bayuppkd_b_2/meet_5/tugas5.dart';
 //import 'package:bayuppkd_b_2/meet_1/meet_2.dart';
 //import 'package:bayuppkd_b_2/meet_1/tugas_1_flutter.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
       ),
-      home: TugasEmpat(),
+      home: TugasLima(),
     );
   }
 }
