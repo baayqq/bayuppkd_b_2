@@ -1,4 +1,4 @@
-//import 'dart:ffi';
+//import 'dart:ffi';sdad
 
 import 'package:flutter/material.dart';
 
@@ -18,18 +18,22 @@ class _TugasEmpatState extends State<TugasEmpat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: Text("Formulir Data"),
-        backgroundColor: Color(0xff03A791),
+        title: Text(
+          "Formulir Data",
+          style: TextStyle(color: Color(0xffFFFFFF)),
+        ),
+        backgroundColor: Color(0xff394867),
         centerTitle: true,
       ),
 
       body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.all(22),
+            padding: EdgeInsets.all(20),
             //margin: EdgeInsets.all(0),
-            //color: Color(0xff81E7AF),
+            //color: Color(0x40A1887F),
             child: Column(
               children: [
                 Row(
@@ -52,11 +56,13 @@ class _TugasEmpatState extends State<TugasEmpat> {
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.people_alt_rounded),
                     hintText: "masukan nama",
+                    hintStyle: TextStyle(color: Color(0xff333333)),
                     filled: true,
+                    fillColor: Color(0xFFE6F0EA),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: Color(0xffD2D0A0),
+                        color: Color(0xff789262),
                         width: 1,
                       ),
                     ),
@@ -81,12 +87,14 @@ class _TugasEmpatState extends State<TugasEmpat> {
                   },
                   decoration: InputDecoration(
                     hintText: "email",
+                    hintStyle: TextStyle(color: Color(0xff333333)),
                     prefixIcon: Icon(Icons.email),
                     filled: true,
+                    fillColor: Color(0xFFE6F0EA),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: Color(0xffD2D0A0),
+                        color: Color(0xff789262),
                         width: 1,
                       ),
                     ),
@@ -113,11 +121,13 @@ class _TugasEmpatState extends State<TugasEmpat> {
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.phone),
                     hintText: "No. HP",
+                    hintStyle: TextStyle(color: Color(0xff333333)),
                     filled: true,
+                    fillColor: Color(0xFFE6F0EA),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: Color(0xffD2D0A0),
+                        color: Color(0xff789262),
                         width: 1,
                       ),
                     ),
@@ -143,11 +153,13 @@ class _TugasEmpatState extends State<TugasEmpat> {
                   maxLines: 2,
                   decoration: InputDecoration(
                     hintText: "deskripsi",
+                    hintStyle: TextStyle(color: Color(0xff333333)),
                     filled: true,
+                    fillColor: Color(0xFFE6F0EA),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: Color(0xffD2D0A0),
+                        color: Color(0xff789262),
                         width: 1,
                       ),
                     ),
@@ -185,52 +197,57 @@ class _TugasEmpatState extends State<TugasEmpat> {
                 ),
                 SizedBox(height: 12),
                 Card(
+                  color: Color(0xFFFFFFFF),
                   elevation: 4,
                   child: ListTile(
                     leading: Image.asset("assets/images/ayam.jpg"),
                     shape: CircleBorder(),
-                    title: Text("patrik"),
-                    subtitle: Text("1.254.000"),
+                    title: Text("Ayam"),
+                    subtitle: Text("25.000"),
                     trailing: Icon(Icons.add_shopping_cart_sharp),
                   ),
                 ),
                 Card(
+                  color: Color(0xFFFFFFFF),
                   elevation: 4,
                   child: ListTile(
                     leading: Image.asset("assets/images/topoki.jpg"),
                     shape: CircleBorder(),
-                    title: Text("patrik"),
-                    subtitle: Text("1.254.000"),
+                    title: Text("Teopoki"),
+                    subtitle: Text("19.000"),
                     trailing: Icon(Icons.add_shopping_cart_sharp),
                   ),
                 ),
                 Card(
+                  color: Color(0xFFFFFFFF),
                   elevation: 4,
                   child: ListTile(
                     leading: Image.asset("assets/images/salmon.jpg"),
                     shape: CircleBorder(),
-                    title: Text("patrik"),
-                    subtitle: Text("1.254.000"),
+                    title: Text("Salmon"),
+                    subtitle: Text("27.000"),
                     trailing: Icon(Icons.add_shopping_cart_sharp),
                   ),
                 ),
                 Card(
+                  color: Color(0xFFFFFFFF),
                   elevation: 4,
                   child: ListTile(
                     leading: Image.asset("assets/images/burger.jpg"),
                     shape: CircleBorder(),
-                    title: Text("patrik"),
-                    subtitle: Text("1.254.000"),
+                    title: Text("Burger"),
+                    subtitle: Text("24.000"),
                     trailing: Icon(Icons.add_shopping_cart_sharp),
                   ),
                 ),
                 Card(
+                  color: Color(0xFFFFFFFF),
                   elevation: 4,
                   child: ListTile(
                     leading: Image.asset("assets/images/susi.jpg"),
                     shape: CircleBorder(),
-                    title: Text("patrik"),
-                    subtitle: Text("1.254.000"),
+                    title: Text("Sushi"),
+                    subtitle: Text("28.000"),
                     trailing: Icon(Icons.add_shopping_cart_sharp),
                   ),
                 ),
