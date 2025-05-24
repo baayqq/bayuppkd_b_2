@@ -53,7 +53,12 @@ class _TugasLimaState extends State<TugasLima> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Halaman Interaksi')),
+      appBar: AppBar(
+        title: const Text('Tugas 5'),
+        centerTitle: true,
+        backgroundColor: Colors.cyanAccent,
+      ),
+      
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         child: const Icon(Icons.add),
@@ -72,10 +77,11 @@ class _TugasLimaState extends State<TugasLima> {
               const SizedBox(height: 8),
               Text(_nameText),
 
-              const Divider(),
+              //const Divider(),
 
               // IconButton
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
                     icon: Icon(
@@ -88,7 +94,7 @@ class _TugasLimaState extends State<TugasLima> {
                 ],
               ),
 
-              const Divider(),
+              //const Divider(),
 
               // TextButton
               TextButton(
@@ -97,7 +103,7 @@ class _TugasLimaState extends State<TugasLima> {
               ),
               Text(_descriptionText),
 
-              const Divider(),
+              //const Divider(),
 
               // InkWell
               InkWell(
@@ -106,7 +112,7 @@ class _TugasLimaState extends State<TugasLima> {
                   padding: const EdgeInsets.all(16),
                   color: Colors.blueAccent,
                   child: const Text(
-                    'Klik kotak ini (InkWell)',
+                    'Klik kotak ini',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -114,10 +120,10 @@ class _TugasLimaState extends State<TugasLima> {
               if (_showInkWellText)
                 const Padding(
                   padding: EdgeInsets.only(top: 8.0),
-                  child: Text('InkWell ditekan!'),
+                  child: Text('di tekan'),
                 ),
 
-              const Divider(),
+              //const Divider(),
 
               // GestureDetector
               GestureDetector(
@@ -133,10 +139,10 @@ class _TugasLimaState extends State<TugasLima> {
                 ),
               ),
 
-              const Divider(),
+              //const Divider(),
 
               // Counter Display
-              Text('Counter: $_counter'),
+              Text('jumlah: $_counter'),
             ],
           ),
         ),
