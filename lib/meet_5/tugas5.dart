@@ -91,7 +91,15 @@ class _TugasLimaTesState extends State<TugasLimaTes> {
             ],
           ),
           SizedBox(height: 5),
-          if (_suka) Text("Disukai"),
+          if (_selengkapnya)
+            Text(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare ipsum at tristique luctus. Donec lacinia elit quis fringilla tristique. Duis hendrerit suscipit tortor sit amet venenatis. Vestibulum leo tellus, dignissim ut tortor vel, porta blandit sapien. Ut sodales turpis felis, eget tempus diam hendrerit ac. Fusce non euismod velit. Proin risus sem, dapibus quis tincidunt id, vehicula vitae tellus. Pellentesque metus dolor, mollis non viverra nec, consequat ut mauris. Sed suscipit turpis sit amet semper pharetra. Pellentesque laoreet lectus eget dapibus laoreet. Nulla tristique diam quam, eget rhoncus nunc suscipit vitae.",
+            ),
+
+          // if (_selengkapnya)
+          //   Text(
+          //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare ipsum at tristique luctus. Donec lacinia elit quis fringilla tristique. Duis hendrerit suscipit tortor sit amet venenatis. Vestibulum leo tellus, dignissim ut tortor vel, porta blandit sapien. Ut sodales turpis felis, eget tempus diam hendrerit ac. Fusce non euismod velit. Proin risus sem, dapibus quis tincidunt id, vehicula vitae tellus. Pellentesque metus dolor, mollis non viverra nec, consequat ut mauris. Sed suscipit turpis sit amet semper pharetra. Pellentesque laoreet lectus eget dapibus laoreet. Nulla tristique diam quam, eget rhoncus nunc suscipit vitae.",
+          //   ),
           Row(
             children: [
               TextButton(
@@ -104,11 +112,8 @@ class _TugasLimaTesState extends State<TugasLimaTes> {
               ),
             ],
           ),
-          if (_selengkapnya)
-            Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare ipsum at tristique luctus. Donec lacinia elit quis fringilla tristique. Duis hendrerit suscipit tortor sit amet venenatis. Vestibulum leo tellus, dignissim ut tortor vel, porta blandit sapien. Ut sodales turpis felis, eget tempus diam hendrerit ac. Fusce non euismod velit. Proin risus sem, dapibus quis tincidunt id, vehicula vitae tellus. Pellentesque metus dolor, mollis non viverra nec, consequat ut mauris. Sed suscipit turpis sit amet semper pharetra. Pellentesque laoreet lectus eget dapibus laoreet. Nulla tristique diam quam, eget rhoncus nunc suscipit vitae.",
-            ),
           Text('$_jumlah'),
+          if (_suka) Text("Disukai"),
           // Row(
           //   children: [
           //     InkWell(
@@ -133,6 +138,7 @@ class _TugasLimaTesState extends State<TugasLimaTes> {
           //     ),
           //   ],
           // ),
+          SizedBox(height: 20),
           Row(
             children: [
               GestureDetector(

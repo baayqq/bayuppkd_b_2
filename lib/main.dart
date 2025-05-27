@@ -3,13 +3,19 @@
 //import 'package:bayuppkd_b_2/meet_2/meet2_2.dart';
 // 'package:bayuppkd_b_2/meet_2/meet_2.dart';
 //import 'package:bayuppkd_b_2/meet_3/tugas_3a.dart';
+import 'package:bayuppkd_b_2/meet_1/meet1.dart';
+import 'package:bayuppkd_b_2/meet_12/meet_12a.dart';
+import 'package:bayuppkd_b_2/meet_12/tugas_7.dart';
+//import 'package:bayuppkd_b_2/meet_12/meet_12.dart';
 import 'package:bayuppkd_b_2/meet_4/tugas_4.dart';
 import 'package:bayuppkd_b_2/meet_5/Tugas_5.dart';
 import 'package:bayuppkd_b_2/meet_5/tes.dart';
 import 'package:bayuppkd_b_2/meet_5/tugas5.dart';
+import 'package:bayuppkd_b_2/meet_6/homepage.dart';
 import 'package:bayuppkd_b_2/meet_6/tugas_6.dart';
 //import 'package:bayuppkd_b_2/meet_1/meet_2.dart';
 //import 'package:bayuppkd_b_2/meet_1/tugas_1_flutter.dart';
+import 'package:bayuppkd_b_2/meet_12/tugas_7.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -41,9 +47,14 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: TugasEnam(),
+      home: TugasTujuh(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => Meet12AInputWidget(),
+      //   '/tugas5': (context) => TugasLimaTes(),
+      // },
     );
   }
 }

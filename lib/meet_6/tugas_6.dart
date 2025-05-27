@@ -1,3 +1,8 @@
+import 'package:bayuppkd_b_2/meet_2/meet2_2.dart';
+import 'package:bayuppkd_b_2/meet_2/meet_2.dart';
+import 'package:bayuppkd_b_2/meet_3/tugas_3a.dart';
+import 'package:bayuppkd_b_2/meet_4/tugas_4.dart';
+import 'package:bayuppkd_b_2/meet_5/tugas5.dart';
 import 'package:flutter/material.dart';
 
 class TugasEnam extends StatefulWidget {
@@ -15,12 +20,12 @@ class _TugasEnamState extends State<TugasEnam> {
           false, //hilangin overfloow saat onsreen keyboard
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
-          icon: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
-          ),
+          onPressed: () {
+            Navigator.pop(context); //navigator pop
+          },
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
         ),
+
         //actions: [Icon(Icons.arrow_back_ios_new),],
         title: Text(
           "Login",
@@ -129,7 +134,12 @@ class _TugasEnamState extends State<TugasEnam> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => mTugaasDua()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: (Colors.white),
                 padding: EdgeInsets.symmetric(horizontal: 140, vertical: 16),
