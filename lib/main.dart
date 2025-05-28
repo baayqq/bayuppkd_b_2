@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
 
-      home: TugasTujuh(),
+      home: TugasDelapan(),
       // initialRoute: '/TugasTujuh',
       // routes: {
       //   '/TugasTujuh': (context) => TugasTujuh(),

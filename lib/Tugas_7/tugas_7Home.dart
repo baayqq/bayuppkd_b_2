@@ -8,7 +8,8 @@ import 'package:bayuppkd_b_2/constant/app_color.dart';
 import 'package:bayuppkd_b_2/constant/app_style.dart';
 
 class TugasTujuh extends StatefulWidget {
-  const TugasTujuh({super.key});
+  final String title;
+  const TugasTujuh({super.key, this.title = 'Tugas 7'});
 
   @override
   State<TugasTujuh> createState() => _TugasTujuhState();
@@ -28,7 +29,7 @@ class _TugasTujuhState extends State<TugasTujuh> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Tugas 7",
+          widget.title,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
         ),
         centerTitle: true,
@@ -45,7 +46,12 @@ class _TugasTujuhState extends State<TugasTujuh> {
                 radius: 60,
                 backgroundImage: AssetImage("assets/images/pat.jpg"),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 20),
+              Text(
+                "Bayu",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              ),
+              SizedBox(height: 30),
               ListTile(
                 leading: Icon(Icons.check_box),
                 title: Text('Check Box'),
