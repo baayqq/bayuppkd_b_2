@@ -4,6 +4,10 @@
 // 'package:bayuppkd_b_2/meet_2/meet_2.dart';
 //import 'package:bayuppkd_b_2/meet_3/tugas_3a.dart';
 import 'package:bayuppkd_b_2/Tugas_8/tugas8.dart';
+import 'package:bayuppkd_b_2/Tugas_9/HomeTugas9.dart';
+import 'package:bayuppkd_b_2/Tugas_9/Tugas9a.dart';
+import 'package:bayuppkd_b_2/Tugas_9/Tugas9b.dart';
+import 'package:bayuppkd_b_2/Tugas_9/Tugas9c.dart';
 import 'package:bayuppkd_b_2/meet_1/meet1.dart';
 import 'package:bayuppkd_b_2/meet_12/meet_12a.dart';
 import 'package:bayuppkd_b_2/Tugas_7/tugas_7Home.dart';
@@ -51,7 +55,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
 
-      home: TugasDelapan(),
+      home: SembilanHome(),
       // initialRoute: '/TugasTujuh',
       // routes: {
       //   '/TugasTujuh': (context) => TugasTujuh(),

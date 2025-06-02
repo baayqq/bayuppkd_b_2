@@ -3,6 +3,9 @@ import 'package:bayuppkd_b_2/Tugas_7/7b.dart';
 import 'package:bayuppkd_b_2/Tugas_7/7d.dart';
 import 'package:bayuppkd_b_2/Tugas_7/7c.dart';
 import 'package:bayuppkd_b_2/Tugas_7/7e.dart';
+import 'package:bayuppkd_b_2/Tugas_9/Tugas9a.dart';
+import 'package:bayuppkd_b_2/Tugas_9/Tugas9b.dart';
+import 'package:bayuppkd_b_2/Tugas_9/Tugas9c.dart';
 import 'package:flutter/material.dart';
 import 'package:bayuppkd_b_2/constant/app_color.dart';
 import 'package:bayuppkd_b_2/constant/app_style.dart';
@@ -22,7 +25,16 @@ class _TugasTujuhState extends State<TugasTujuh> {
   // DateTime? selectDate;
   // TimeOfDay? selectedTime;
   int _selectedIndex = 0;
-  List<Widget> listScreen = [TujuhA(), TujuhB(), TujuhC(), TujuhD(), TujuhE()];
+  List<Widget> listScreen = [
+    TujuhA(),
+    TujuhB(),
+    TujuhC(),
+    TujuhD(),
+    TujuhE(),
+    TugasSembilanA(),
+    TugasSembilanB(),
+    TugasSembilanC(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +110,36 @@ class _TugasTujuhState extends State<TugasTujuh> {
                 onTap: () {
                   setState(() {
                     _selectedIndex = 4;
+                  });
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.access_time_outlined),
+                title: Text('Tugas 9A'),
+                onTap: () {
+                  setState(() {
+                    _selectedIndex = 5;
+                  });
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.access_time_outlined),
+                title: Text('Tugas 9B'),
+                onTap: () {
+                  setState(() {
+                    _selectedIndex = 6;
+                  });
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.access_time_outlined),
+                title: Text('Tugas 9C'),
+                onTap: () {
+                  setState(() {
+                    _selectedIndex = 7;
                   });
                   Navigator.pop(context);
                 },
