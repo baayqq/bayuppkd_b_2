@@ -25,16 +25,35 @@ class HalamanTerimakasih extends StatelessWidget {
         backgroundColor: Colors.teal,
         centerTitle: true,
       ),
+      // backgroundColor: Colors.tealAccent,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Terima Kasih $nama \nDari $asal \nTelah Sukses Mendaftar',
-                style: TextStyle(fontSize: 32),
-                textAlign: TextAlign.center,
+              Stack(
+                children: <Widget>[
+                  // Stroked text as border.
+                  Text(
+                    'Terima Kasih $nama \nDari $asal \nTelah Sukses Mendaftar',
+                    style: TextStyle(
+                      fontSize: 40,
+                      foreground:
+                          Paint()
+                            ..style = PaintingStyle.stroke
+                            ..strokeWidth = 6
+                            ..color = Colors.tealAccent[700]!,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  // Solid text as fill.
+                  Text(
+                    'Terima Kasih $nama \nDari $asal \nTelah Sukses Mendaftar',
+                    style: TextStyle(fontSize: 40, color: Colors.grey[300]),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ],
           ),

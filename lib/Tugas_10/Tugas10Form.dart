@@ -15,6 +15,142 @@ class _TugasSepuluhState extends State<TugasSepuluh> {
   final TextEditingController _asalController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Formulir Pendaftaran",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.teal,
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              Text(
+                'SILAHKAN ISI FORMULIR TERLEBIH DAHULU',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.start,
+              ),
+              /////////////////////////////////////  NAMA  ///////////////////////////////////////////////////////////////
+              SizedBox(height: 8),
+              TextFormField(
+                controller: _namaController,
+                decoration: InputDecoration(
+                  hintText: "Nama",
+                  hintStyle: TextStyle(color: Color(0xff333333)),
+                  prefixIcon: Icon(Icons.people_alt_rounded),
+                  filled: true,
+                  fillColor: Color(0xFFE6F0EA),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Color(0xff789262), width: 1),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'nama wajib di isi';
+                  }
+                  return null;
+                },
+              ),
+              ////////////////////////////////////////////  EMAIL  ////////////////////////////////////////////////////////////
+              SizedBox(height: 8),
+              TextFormField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  hintText: "email",
+                  hintStyle: TextStyle(color: Color(0xff333333)),
+                  prefixIcon: Icon(Icons.email),
+                  filled: true,
+                  fillColor: Color(0xFFE6F0EA),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Color(0xff789262), width: 1),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Email wajib di isi';
+                  } else if (!value.contains("@")) {
+                    return 'Format Email tidak valid';
+                  } else if (!value.contains(".")) {
+                    return 'Format Email tidak valid';
+                  }
+                  return null;
+                },
+              ),
+              ///////////////////////////////////////////  NOMOR  /////////////////////////////////////////////////////////
+              SizedBox(height: 8),
+              TextFormField(
+                controller: _nomorController,
+                decoration: InputDecoration(
+                  hintText: "Nomor",
+                  hintStyle: TextStyle(color: Color(0xff333333)),
+                  prefixIcon: Icon(Icons.phone),
+                  filled: true,
+                  fillColor: Color(0xFFE6F0EA),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Color(0xff789262), width: 1),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'nomor wajib di isi';
+                  } else if (value.length < 8) {
+                    return 'Format nomor tidak valid';
+                  }
+                  return null;
+                },
+              ),
+              //////////////////////////////////////////  ASAL  /////////////////////////////////////////////////////////////
+              SizedBox(height: 8),
+              TextFormField(
+                controller: _asalController,
+                decoration: InputDecoration(
+                  hintText: "domisili",
+                  hintStyle: TextStyle(color: Color(0xff333333)),
+                  prefixIcon: Icon(Icons.maps_home_work_rounded),
+                  filled: true,
+                  fillColor: Color(0xFFE6F0EA),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Color(0xff789262), width: 1),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'domisili wajib di isi';
+                  }
+                  return null;
+                },
+              ),
+              ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+              SizedBox(height: 12),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    print('Berhasil');
+                    dialogSuccess(context);
+                  }
+                },
+                child: Text('Daftar'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Future<dynamic> dialogSuccess(BuildContext context) {
     return showDialog(
       context: context,
@@ -58,139 +194,6 @@ class _TugasSepuluhState extends State<TugasSepuluh> {
           ],
         );
       },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Formulir Pendaftaran",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.teal,
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              SizedBox(height: 40),
-              Text(
-                'SILAHKAN ISI FORMULIR TERLEBIH DAHULU',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.start,
-              ),
-              ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-              SizedBox(height: 8),
-              TextFormField(
-                controller: _namaController,
-                decoration: InputDecoration(
-                  hintText: "Nama",
-                  hintStyle: TextStyle(color: Color(0xff333333)),
-                  prefixIcon: Icon(Icons.people_alt_rounded),
-                  filled: true,
-                  fillColor: Color(0xFFE6F0EA),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Color(0xff789262), width: 1),
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'nama wajib di isi';
-                  }
-                  return null;
-                },
-              ),
-              ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-              SizedBox(height: 8),
-              TextFormField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  hintText: "email",
-                  hintStyle: TextStyle(color: Color(0xff333333)),
-                  prefixIcon: Icon(Icons.email),
-                  filled: true,
-                  fillColor: Color(0xFFE6F0EA),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Color(0xff789262), width: 1),
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Email wajib di isi';
-                  } else if (!value.contains("@")) {
-                    return 'Format Email tidak valid';
-                  }
-                  return null;
-                },
-              ),
-              ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-              SizedBox(height: 8),
-              TextFormField(
-                controller: _nomorController,
-                decoration: InputDecoration(
-                  hintText: "Nomor",
-                  hintStyle: TextStyle(color: Color(0xff333333)),
-                  prefixIcon: Icon(Icons.phone),
-                  filled: true,
-                  fillColor: Color(0xFFE6F0EA),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Color(0xff789262), width: 1),
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'nomor wajib di isi';
-                  } else if (value.length < 10) {
-                    return 'Format nomor tidak valid';
-                  }
-                  return null;
-                },
-              ),
-              ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-              SizedBox(height: 8),
-              TextFormField(
-                controller: _asalController,
-                decoration: InputDecoration(
-                  hintText: "domisili",
-                  hintStyle: TextStyle(color: Color(0xff333333)),
-                  prefixIcon: Icon(Icons.maps_home_work_rounded),
-                  filled: true,
-                  fillColor: Color(0xFFE6F0EA),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Color(0xff789262), width: 1),
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'domisili wajib di isi';
-                  }
-                  return null;
-                },
-              ),
-              ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-              SizedBox(height: 12),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    print('Berhasil');
-                    dialogSuccess(context);
-                  }
-                },
-                child: Text('Daftar'),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
