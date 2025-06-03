@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HalamanTerimakasih extends StatelessWidget {
-  const HalamanTerimakasih({
+class InfoDaftar extends StatelessWidget {
+  const InfoDaftar({
     super.key,
     required this.nama,
     required this.email,

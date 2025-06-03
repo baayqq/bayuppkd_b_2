@@ -28,7 +28,7 @@ class _TugasSepuluhState extends State<TugasSepuluh> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -180,7 +180,7 @@ class _TugasSepuluhState extends State<TugasSepuluh> {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => HalamanTerimakasih(
+                        (context) => InfoDaftar(
                           nama: _namaController.text,
                           email: _emailController.text,
                           nomor: _nomorController.text,

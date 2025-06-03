@@ -1,3 +1,4 @@
+import 'package:bayuppkd_b_2/helper/preference.dart';
 import 'package:bayuppkd_b_2/meet_2/meet2_2.dart';
 import 'package:bayuppkd_b_2/meet_2/meet_2.dart';
 import 'package:bayuppkd_b_2/meet_3/tugas_3a.dart';
@@ -135,10 +136,8 @@ class _TugasEnamState extends State<TugasEnam> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => mTugaasDua()),
-                );
+                PreferenceHandler.saveLogin(true);
+                
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: (Colors.white),
