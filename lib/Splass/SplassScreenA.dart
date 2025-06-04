@@ -4,7 +4,7 @@ import 'package:bayuppkd_b_2/meet_16/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
-  static const String id = "/Splasha";
+  static const String id = "/Splash";
 
   const SplashScreen({super.key});
 
@@ -24,7 +24,11 @@ class _SplashScreenState extends State<SplashScreen> {
           (route) => false,
         );
       } else {
-        Navigator.pushNamedAndRemoveUntil(context, "/Splash", (route) => false);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          Splash.id,
+          (route) => false,
+        ); // Splash B
       }
     });
   }

@@ -41,6 +41,40 @@ class _ScreenSiswaState extends State<ScreenSiswa> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text('Pendaftaran Siswa')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: namaController,
+              decoration: InputDecoration(labelText: 'Nama'),
+            ),
+            TextField(
+              controller: umurController,
+              decoration: InputDecoration(labelText: 'Umur'),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 36),
+            ElevatedButton(onPressed: simpanData, child: Text('Simpan')),
+            Divider(height: 32),
+            Expanded(
+              child: ListView.builder(
+                itemCount: daftarSiswa.length,
+                itemBuilder: (context, index) {
+                  final Siswa = daftarSiswa[index];
+                  return ListTile(
+                    leading: CircleAvatar(child: Text('${Siswa.id}')),
+                    title: Text(Siswa.nama),
+                    subtitle: Text('Umur: ${Siswa.umur}'),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

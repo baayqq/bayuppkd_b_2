@@ -1,3 +1,5 @@
+import 'package:bayuppkd_b_2/Tugas_11/Tugas11Ui.dart';
+import 'package:bayuppkd_b_2/meet_16/StudyCase16/UiSiswa16.dart';
 import 'package:bayuppkd_b_2/meet_16/login_screen.dart';
 import 'package:bayuppkd_b_2/meet_16/register_screen.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +49,7 @@ class _SplashState extends State<Splash> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const LoginSreenAPP(),
+                      builder: (context) => const TugasSebelas(),
                     ),
                   );
                 },
