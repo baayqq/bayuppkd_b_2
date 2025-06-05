@@ -32,4 +32,16 @@ class DBHelperSebelas {
 
     return List.generate(maps.length, (i) => Pengunjung.fromMap(maps[i]));
   }
+    static Future<void> deletePengunjung(int id) async {
+    final db = await DBHelperSebelas.db();
+    await db.delete('pengunjung', where: 'id = ?', whereArgs: [id]);
+
+    // Cek apakah tabel kosong, lalu reset auto increment
+    final count = Sqflite.firstIntValue(
+      await db.rawQuery('SELECT COUNT(*) FROM pengunjung'),
+    );
+    if (count == 0) {
+      await db.execute("DELETE FROM sqlite_sequence WHERE name = 'pengunjung'");
+    }
+  }
 }
