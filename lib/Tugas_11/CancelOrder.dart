@@ -1,3 +1,4 @@
+import 'package:bayuppkd_b_2/Tugas_11/EditOrder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sqflite/sqflite.dart';
@@ -56,73 +57,97 @@ class _COrderState extends State<COrder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Loket Pembatalan Order',
-          style: TextStyle(color: Colors.white),
-        ),
+        title: Text('Info Pengunjung', style: TextStyle(color: Colors.white)),
         backgroundColor: Color(0xff274d60),
       ),
       backgroundColor: Color(0xff6ba3be),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Expanded(
-          child: ListView.builder(
-            itemCount: daftarPengunjung.length,
-            itemBuilder: (context, index) {
-              final Pengunjung = daftarPengunjung[index];
-              return Card(
-                // color: Color(0xff6ba3be),
-                child: ListTile(
-                  leading: CircleAvatar(child: Text('${index + 1}')),
-                  title: Text(Pengunjung.nama),
-                  subtitle: Text(
-                    'Film: ${Pengunjung.email}\nTiket: ${Pengunjung.tiket}\nWaktu: ${Pengunjung.asal}',
-                  ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete),
-                    onPressed: () async {
-                      showDialog(
-                        context: context,
-                        builder:
-                            (context) => AlertDialog(
-                              title: Text(
-                                'Apakah anda yakin ingin\nmembatalkan pesanan?',
-                              ),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text("Batal"),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: daftarPengunjung.length,
+                itemBuilder: (context, index) {
+                  final Pengunjung = daftarPengunjung[index];
+                  return Card(
+                    // color: Color(0xff6ba3be),
+                    child: ListTile(
+                      leading: CircleAvatar(child: Text('${index + 1}')),
+                      title: Text(Pengunjung.nama),
+                      subtitle: Text(
+                        'Film: ${Pengunjung.email}\nTiket: ${Pengunjung.tiket}\nWaktu: ${Pengunjung.asal}',
+                      ),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.edit),
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) =>
+                                          EOrder(pengunjung: Pengunjung),
                                 ),
-
-                                TextButton(
-                                  onPressed: () async {
-                                    await DBHelperSebelas.deletePengunjung(
-                                      Pengunjung.id!,
-                                    );
-                                    muatData();
-                                    Navigator.pop(context);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          "Berhasil Melakukan Pembatalan",
-                                        ),
-                                        backgroundColor: Colors.teal,
+                              );
+                              setState(() {
+                                muatData();
+                              });
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () async {
+                              showDialog(
+                                context: context,
+                                builder:
+                                    (context) => AlertDialog(
+                                      title: Text(
+                                        'Apakah anda yakin ingin\nmembatalkan pesanan?',
                                       ),
-                                    );
-                                  },
-                                  child: Text("Lanjut"),
-                                ),
-                              ],
-                            ),
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          ),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("Batal"),
+                                        ),
+
+                                        TextButton(
+                                          onPressed: () async {
+                                            await DBHelperSebelas.deletePengunjung(
+                                              Pengunjung.id!,
+                                            );
+                                            muatData();
+                                            Navigator.pop(context);
+                                            ScaffoldMessenger.of(
+                                              context,
+                                            ).showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  "Berhasil Melakukan Pembatalan",
+                                                ),
+                                                backgroundColor: Colors.teal,
+                                              ),
+                                            );
+                                          },
+                                          child: Text("Lanjut"),
+                                        ),
+                                      ],
+                                    ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
