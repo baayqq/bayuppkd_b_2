@@ -269,7 +269,12 @@ class _LoginScreenAPPState extends State<LoginSreenAPP> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, RegisterScreenAPP.id);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RegisterScreenAPP(),
+                        ),
+                      );
                     },
                     child: Text(
                       "Sign Up",

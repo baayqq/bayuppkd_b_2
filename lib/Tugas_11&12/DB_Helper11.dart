@@ -1,4 +1,4 @@
-import 'package:bayuppkd_b_2/Tugas_11/Model11.dart';
+import 'package:bayuppkd_b_2/Tugas_11&12/Model11.dart';
 import 'package:sqflite/sqlite_api.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
