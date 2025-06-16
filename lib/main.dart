@@ -47,13 +47,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
 
-      home: LoginSreenAPP(),
+      home: TugasSepuluh(),
       // initialRoute: SplashScreen.id,
       // routes: {
       //   SplashScreen.id: (context) => const SplashScreen(),
       //   Splash.id: (context) => const Splash(),
       //   LoginSreenAPP.id: (context) => LoginSreenAPP(),
-      //   RegisterScreenAPP.id: (context) => RegisterScreenAPP(),
+      //   RegisterScreenAPP.id: (co.ntext) => RegisterScreenAPP(),
       // },
     );
   }

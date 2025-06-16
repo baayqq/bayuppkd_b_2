@@ -190,9 +190,9 @@ class _TugasTigaState extends State<TugasTiga> {
                       child: GridView.count(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
-                        crossAxisSpacing: 8,
-                        mainAxisSpacing: 8,
-                        crossAxisCount: 3,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                          crossAxisCount: 3,
                         children: <Widget>[
                           Container(
                             color: Color(0xffADD8E6),
