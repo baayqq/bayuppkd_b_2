@@ -10,6 +10,7 @@ class DetailCryp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(coin.name ?? 'Detail Coin')),
+      backgroundColor: Color(0xff0A0F2C),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -40,9 +41,10 @@ class DetailCryp extends StatelessWidget {
               'Perubahan Harga 24H: ${coin.priceChangePercentage24H?.toStringAsFixed(2) ?? '-'}%',
               style: TextStyle(
                 fontSize: 16,
-                color: (coin.priceChangePercentage24H ?? 0) >= 0
-                    ? Colors.green
-                    : Colors.red,
+                color:
+                    (coin.priceChangePercentage24H ?? 0) >= 0
+                        ? Colors.green
+                        : Colors.red,
               ),
             ),
             SizedBox(height: 10),

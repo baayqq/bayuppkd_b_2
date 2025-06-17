@@ -3,14 +3,14 @@ import 'package:bayuppkd_b_2/Tugas_14/view/list_deatail.dart';
 import 'package:flutter/material.dart';
 import 'package:bayuppkd_b_2/Tugas_14/model/usermodel.dart';
 
-class ScreenApp extends StatefulWidget {
-  const ScreenApp({super.key});
+class MarketPage extends StatefulWidget {
+  const MarketPage({super.key});
 
   @override
-  State<ScreenApp> createState() => _ScreenAppState();
+  State<MarketPage> createState() => _MarketPageState();
 }
 
-class _ScreenAppState extends State<ScreenApp> {
+class _MarketPageState extends State<MarketPage> {
   TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
   Future<List<DataApi>>? _futureData;
@@ -25,29 +25,31 @@ class _ScreenAppState extends State<ScreenApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Crypto List"),
-        backgroundColor: Colors.blueGrey,
+        title: SizedBox(
+          height: 36,
+          width: 240,
+          child: TextField(
+            controller: _searchController,
+            decoration: InputDecoration(
+              labelText: 'Cari Crypto',
+              prefixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(
+                // borderRadius: BorderRadius.circular(40),
+              ),
+            ),
+            onChanged: (value) {
+              setState(() {
+                _searchQuery = value.toLowerCase();
+              });
+            },
+          ),
+        ),
+        elevation: 4,
+        backgroundColor: Color(0xff0A0F2C),
       ),
+      backgroundColor: Color(0xff0A0F2C),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                labelText: 'Cari Crypto',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(40),
-                ),
-              ),
-              onChanged: (value) {
-                setState(() {
-                  _searchQuery = value.toLowerCase();
-                });
-              },
-            ),
-          ),
           Expanded(
             child: FutureBuilder<List<DataApi>>(
               future: _futureData,
@@ -87,6 +89,7 @@ class _ScreenAppState extends State<ScreenApp> {
                     itemBuilder: (context, index) {
                       final coin = filteredUsers[index];
                       return Card(
+                        color: Color(0xff0A0F2C),
                         margin: EdgeInsets.symmetric(
                           horizontal: 10,
                           vertical: 6,
@@ -113,7 +116,10 @@ class _ScreenAppState extends State<ScreenApp> {
                                   : Icon(Icons.image_not_supported),
                           title: Text(
                             coin.name ?? 'Nama tidak tersedia',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white70,
+                            ),
                           ),
                           subtitle: Text(
                             'USD ${coin.currentPrice?.toStringAsFixed(2) ?? '-'}',
