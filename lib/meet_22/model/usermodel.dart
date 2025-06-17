@@ -1,7 +1,4 @@
-// To parse this JSON data, do
-//
-//     final welcome = welcomeFromJson(jsonString);
-
+// import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
@@ -13,7 +10,7 @@ class Welcome {
   int? perPage;
   int? total;
   int? totalPages;
-  List<Datum>? data;
+  List<UserData>? data;
   Support? support;
 
   Welcome({
@@ -33,7 +30,9 @@ class Welcome {
     data:
         json["data"] == null
             ? []
-            : List<Datum>.from(json["data"]!.map((x) => Datum.fromJson(x))),
+            : List<UserData>.from(
+              json["data"]!.map((x) => UserData.fromJson(x)),
+            ),
     support: json["support"] == null ? null : Support.fromJson(json["support"]),
   );
 
@@ -48,16 +47,16 @@ class Welcome {
   };
 }
 
-class Datum {
+class UserData {
   int? id;
   String? email;
   String? firstName;
   String? lastName;
   String? avatar;
 
-  Datum({this.id, this.email, this.firstName, this.lastName, this.avatar});
+  UserData({this.id, this.email, this.firstName, this.lastName, this.avatar});
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory UserData.fromJson(Map<String, dynamic> json) => UserData(
     id: json["id"],
     email: json["email"],
     firstName: json["first_name"],
