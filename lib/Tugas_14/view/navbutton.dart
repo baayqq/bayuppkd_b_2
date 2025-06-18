@@ -37,7 +37,7 @@ class _NavHomeState extends State<NavHome> {
             icon: Icon(Icons.signal_cellular_alt),
             label: 'Market',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.wallet), label: 'Wallet'),
+          // BottomNavigationBarItem(icon: Icon(Icons.wallet), label: 'Wallet'),
         ],
         backgroundColor: Color(0xff0A0F2C),
         currentIndex: _pilihIndex,

@@ -29,10 +29,12 @@ class _MarketPageState extends State<MarketPage> {
           height: 36,
           width: 240,
           child: TextField(
+            style: TextStyle(color: Colors.white70),
             controller: _searchController,
             decoration: InputDecoration(
               labelText: 'Cari Crypto',
-              prefixIcon: Icon(Icons.search),
+              labelStyle: TextStyle(color: Colors.white),
+              suffixIconColor: Colors.white,
               border: OutlineInputBorder(
                 // borderRadius: BorderRadius.circular(40),
               ),

@@ -9,13 +9,21 @@ class DetailCryp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(coin.name ?? 'Detail Coin')),
+      appBar: AppBar(
+        title: Text(
+          coin.name ?? 'Detail Coin',
+          style: TextStyle(color: Colors.white70),
+        ),
+        backgroundColor: Color(0xff0A0F2C),
+      ),
       backgroundColor: Color(0xff0A0F2C),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // SizedBox(height: 100),
             Row(
               children: [
                 coin.image != null
@@ -24,18 +32,22 @@ class DetailCryp extends StatelessWidget {
                 SizedBox(width: 10),
                 Text(
                   '${coin.name} (${coin.symbol?.toUpperCase() ?? ''})',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white70,
+                  ),
                 ),
               ],
             ),
             SizedBox(height: 20),
             Text(
               'Harga Saat Ini: \$${coin.currentPrice?.toStringAsFixed(2) ?? '-'}',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16, color: Colors.white60),
             ),
             Text(
               'Market Cap Rank: ${coin.marketCapRank ?? '-'}',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16, color: Colors.white60),
             ),
             Text(
               'Perubahan Harga 24H: ${coin.priceChangePercentage24H?.toStringAsFixed(2) ?? '-'}%',
@@ -51,6 +63,29 @@ class DetailCryp extends StatelessWidget {
             Text(
               'Update Terakhir: ${coin.lastUpdated?.toLocal().toString() ?? '-'}',
               style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+            ),
+            SizedBox(height: 40),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    minimumSize: Size(100, 50),
+                  ),
+                  child: Text('Jual', style: TextStyle(color: Colors.white)),
+                ),
+                SizedBox(width: 40),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    minimumSize: Size(100, 50),
+                  ),
+                  child: Text('Beli', style: TextStyle(color: Colors.white)),
+                ),
+              ],
             ),
           ],
         ),
