@@ -9,6 +9,7 @@ import 'package:bayuppkd_b_2/Tugas_10/Tugas10Form.dart';
 import 'package:bayuppkd_b_2/Tugas_11&12/Tugas11Ui.dart';
 import 'package:bayuppkd_b_2/Tugas_14/view/market.dart';
 import 'package:bayuppkd_b_2/Tugas_14/view/navbutton.dart';
+import 'package:bayuppkd_b_2/Tugas_15/auth/login.dart';
 import 'package:bayuppkd_b_2/Tugas_8/tugas8.dart';
 import 'package:bayuppkd_b_2/Tugas_9/HomeTugas9.dart';
 import 'package:bayuppkd_b_2/meet_1/meet1.dart';
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
 
-      home: NavHome(),
+      home: LoginLimaBelas(),
       // initialRoute: SplashScreen.id,
       // routes: {
       //   SplashScreen.id: (context) => const SplashScreen(),
