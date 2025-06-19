@@ -11,7 +11,7 @@ class MarketPage extends StatefulWidget {
 }
 
 class _MarketPageState extends State<MarketPage> {
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
   Future<List<DataApi>>? _futureData;
 
@@ -21,29 +21,46 @@ class _MarketPageState extends State<MarketPage> {
     _futureData = fetchUsers();
   }
 
+  void referes() {
+    setState(() {
+      _searchController.clear();
+      _searchQuery = '';
+      _futureData = fetchUsers();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: SizedBox(
           height: 36,
-          width: 240,
-          child: TextField(
-            style: TextStyle(color: Colors.white70),
-            controller: _searchController,
-            decoration: InputDecoration(
-              labelText: 'Cari Crypto',
-              labelStyle: TextStyle(color: Colors.white),
-              suffixIconColor: Colors.white,
-              border: OutlineInputBorder(
-                // borderRadius: BorderRadius.circular(40),
+          width: double.infinity,
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  style: TextStyle(color: Colors.white70),
+                  controller: _searchController,
+                  decoration: InputDecoration(
+                    labelText: 'Cari Crypto',
+                    labelStyle: TextStyle(color: Colors.white),
+                    suffixIconColor: Colors.white,
+                    border: OutlineInputBorder(),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _searchQuery = value.toLowerCase();
+                    });
+                  },
+                ),
               ),
-            ),
-            onChanged: (value) {
-              setState(() {
-                _searchQuery = value.toLowerCase();
-              });
-            },
+              IconButton(
+                onPressed: referes,
+
+                icon: Icon(Icons.refresh, color: Colors.white70),
+              ),
+            ],
           ),
         ),
         elevation: 4,
@@ -80,57 +97,62 @@ class _MarketPageState extends State<MarketPage> {
                   return Center(child: Text('Crypto tidak ditemukan.'));
                 }
 
-                return RefreshIndicator(
-                  onRefresh: () async {
-                    setState(() {
-                      _futureData = fetchUsers();
-                    });
-                  },
-                  child: ListView.builder(
-                    itemCount: filteredUsers.length,
-                    itemBuilder: (context, index) {
-                      final coin = filteredUsers[index];
-                      return Card(
-                        color: Color(0xff0A0F2C),
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 6,
-                        ),
-                        child: ListTile(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DetailCryp(coin: coin),
-                              ),
-                            );
-                          },
-                          leading:
-                              coin.image != null
-                                  ? Image.network(
-                                    coin.image!,
-                                    width: 40,
-                                    height: 40,
-                                    errorBuilder:
-                                        (context, error, stackTrace) =>
-                                            Icon(Icons.error),
-                                  )
-                                  : Icon(Icons.image_not_supported),
-                          title: Text(
-                            coin.name ?? 'Nama tidak tersedia',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white70,
+                // return RefreshIndicator(
+                //   onRefresh: () async {
+                //     setState(() {
+                //       _futureData = fetchUsers();
+                //     });
+                //   },
+                return ListView.builder(
+                  itemCount: filteredUsers.length,
+                  itemBuilder: (context, index) {
+                    final coin = filteredUsers[index];
+                    return Card(
+                      color: Color(0xff0A0F2C),
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailCryp(coin: coin),
                             ),
-                          ),
-                          subtitle: Text(
-                            'USD ${coin.currentPrice?.toStringAsFixed(2) ?? '-'}',
-                            style: TextStyle(color: Colors.green[700]),
+                          );
+                        },
+                        leading:
+                            coin.image != null
+                                ? Image.network(
+                                  coin.image!,
+                                  width: 40,
+                                  height: 40,
+                                  errorBuilder:
+                                      (context, error, stackTrace) =>
+                                          Icon(Icons.error),
+                                )
+                                : Icon(Icons.image_not_supported),
+                        title: Text(
+                          coin.name ?? 'Nama tidak tersedia',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white70,
                           ),
                         ),
-                      );
-                    },
-                  ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'USD ${coin.currentPrice?.toStringAsFixed(2) ?? '-'}',
+                              style: TextStyle(color: Colors.green[700]),
+                            ),
+                            Text(
+                              'USD -${coin.low24H?.toStringAsFixed(2) ?? '-'}',
+                              style: TextStyle(color: Colors.red[700]),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 );
               },
             ),

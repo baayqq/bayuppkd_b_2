@@ -1,7 +1,6 @@
 import 'package:bayuppkd_b_2/Tugas_14/view/beranda.dart';
 import 'package:bayuppkd_b_2/Tugas_14/view/market.dart';
 import 'package:bayuppkd_b_2/Tugas_14/view/wallet.dart';
-import 'package:bayuppkd_b_2/meet_6/homepage.dart';
 import 'package:flutter/material.dart';
 
 class NavHome extends StatefulWidget {
@@ -16,7 +15,7 @@ class _NavHomeState extends State<NavHome> {
   static const List<Widget> _butonNavigator = <Widget>[
     BerandaPage(),
     MarketPage(),
-    WalletPage(),
+    // WalletPage(),
   ];
 
   void _pilihNavigator(int index) {
@@ -41,8 +40,8 @@ class _NavHomeState extends State<NavHome> {
         ],
         backgroundColor: Color(0xff0A0F2C),
         currentIndex: _pilihIndex,
-        selectedItemColor: Color(0xFF000080),
-        unselectedItemColor: Colors.white54,
+        selectedItemColor: Color(0xFFffffff),
+        unselectedItemColor: Colors.white38,
         onTap: _pilihNavigator,
       ),
     );

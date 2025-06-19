@@ -14,9 +14,9 @@ class _BerandaPageState extends State<BerandaPage> {
 
   // ✅ [Tambahan] Daftar gambar untuk di-slide
   final List<String> gambarList = [
-    'https://picsum.photos/id/1011/400/200',
-    'https://picsum.photos/id/1015/400/200',
-    'https://picsum.photos/id/1016/400/200',
+    'https://c.inilah.com/reborn/2024/09/large_Profil_Timothy_Ronald_Salah_Satu_Investor_Saham_dan_Crypto_Sukses_di_Indonesia_11zon_29bc8826ba.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA2YwS0fDR1cudbNq8X3m1P0gDQF09CBs3ew&s',
+    'https://i.ytimg.com/vi/KlurwqV9sCk/sddefault.jpg',
   ];
 
   int _currentPage = 0;
