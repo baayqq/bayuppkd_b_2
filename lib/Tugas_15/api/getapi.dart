@@ -1,4 +1,7 @@
+import 'package:bayuppkd_b_2/Tugas_15/models/login_error.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/login_model.dart';
+import 'package:bayuppkd_b_2/Tugas_15/models/login_null.dart';
+import 'package:bayuppkd_b_2/Tugas_15/models/register_already.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/register_error.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/register_model.dart';
 import 'package:http/http.dart' as http;
@@ -18,23 +21,33 @@ class UserService {
     if (response.statusCode == 200) {
       return registerResponseFromJson(response.body).toJson();
     } else if (response.statusCode == 422) {
-      return registerErrorFromJson(response.body).toJson();
+      return registErrorFromJson(response.body).toJson();
+    } else if (response.statusCode == 422) {
+      return registAlreadyFromJson(response.body).toJson();
     } else {
       throw Exception('Gagal Mendaftar Akun ${response.statusCode}');
     }
   }
 
-  Future<Map<String, dynamic>> loginUser(String name,String email, String password) async {
+  Future<Map<String, dynamic>> loginUser(
+    String name,
+    String email,
+    String password,
+  ) async {
     final response = await http.post(
       Uri.parse("https://absen.quidi.id/api/login"),
       headers: {'Accept': 'application/json'},
-      body: {'name': name,'email': email, 'password': password},
+      body: {'name': name, 'email': email, 'password': password},
     );
 
     if (response.statusCode == 200) {
       return loginResponseFromJson(response.body).toJson();
+    } else if (response.statusCode == 401) {
+      return loginErrorFromJson(response.body).toJson();
+    } else if (response.statusCode == 404) {
+      return loginNullFromJson(response.body).toJson();
     } else if (response.statusCode == 422) {
-      return loginResponseFromJson(response.body).toJson();
+      return loginErrorFromJson(response.body).toJson(); // tambahkan ini
     } else {
       throw Exception('Gagal Menemukan Akun ${response.statusCode}');
     }

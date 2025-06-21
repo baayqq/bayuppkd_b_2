@@ -132,14 +132,17 @@ class RegisterLimaBelas extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: 36),
-                ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      print('Berhasil');
-                      _handleRegist();
-                    }
-                  },
-                  child: Text('Daftar'),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        print('Berhasil');
+                        _handleRegist();
+                      }
+                    },
+                    child: Text('Daftar'),
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

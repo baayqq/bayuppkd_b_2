@@ -10,12 +10,6 @@ class DetailCryp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back, color: Colors.white70),
-        ),
         title: Text(
           coin.name ?? 'Detail Coin',
           style: TextStyle(color: Colors.white70),
@@ -53,10 +47,6 @@ class DetailCryp extends StatelessWidget {
             ),
             Text(
               'Market Cap Rank: ${coin.marketCapRank ?? '-'}',
-              style: TextStyle(fontSize: 16, color: Colors.white60),
-            ),
-            Text(
-              'Koin Yang Tersedia: ${coin.totalSupply ?? '-'}',
               style: TextStyle(fontSize: 16, color: Colors.white60),
             ),
             Text(
