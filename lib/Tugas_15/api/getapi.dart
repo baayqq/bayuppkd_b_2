@@ -1,6 +1,11 @@
+import 'dart:convert';
+
+import 'package:bayuppkd_b_2/Tugas_15/database_15/sharedpreference.dart';
+import 'package:bayuppkd_b_2/Tugas_15/models/get_profile.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/login_error.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/login_model.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/login_null.dart';
+import 'package:bayuppkd_b_2/Tugas_15/models/profile_null.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/register_already.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/register_error.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/register_model.dart';
@@ -50,6 +55,27 @@ class UserService {
       return loginErrorFromJson(response.body).toJson(); // tambahkan ini
     } else {
       throw Exception('Gagal Menemukan Akun ${response.statusCode}');
+    }
+  }
+
+  Future<DataProfile> profileUser() async {
+    final token = await SharedPrefService.getToken();
+
+    if (token == null) {
+      throw Exception('Token tidak di temukan. Login terlebih dahulu');
+    }
+
+    final response = await http.get(
+      Uri.parse('https://absen.quidi.id/api/profile'),
+      headers: {'Accept': 'application/json', 'Authorization': 'Bearer $token'},
+    );
+
+    if (response.statusCode == 200) {
+      final jsonResponse = jsonDecode(response.body);
+      final getprofile = GetProfile.fromJson(jsonResponse);
+      return getprofile.data!;
+    } else {
+      throw Exception('Failed to load users');
     }
   }
 }

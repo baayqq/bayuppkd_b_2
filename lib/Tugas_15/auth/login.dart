@@ -1,7 +1,9 @@
 import 'package:bayuppkd_b_2/Tugas_15/api/getapi.dart';
 import 'package:bayuppkd_b_2/Tugas_15/auth/register.dart';
-import 'package:bayuppkd_b_2/Tugas_15/home_15.dart';
+import 'package:bayuppkd_b_2/Tugas_15/halaman/profile.dart';
+import 'package:bayuppkd_b_2/Tugas_15/halaman/home_!5.dart';
 import 'package:flutter/material.dart';
+import 'package:bayuppkd_b_2/Tugas_15/database_15/sharedpreference.dart';
 
 class LoginLimaBelas extends StatelessWidget {
   const LoginLimaBelas({super.key});
@@ -24,15 +26,18 @@ class LoginLimaBelas extends StatelessWidget {
         );
         print("Respon dari API: $res"); // Debug log
         if (res['data'] != null) {
+          final token = res['data']['token'];
+          await SharedPrefService.saveToken(token);
+
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('register berhasil'),
+              content: Text('login berhasil'),
               backgroundColor: Colors.green,
             ),
           );
           Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => HomeLimaBelas()),
+            MaterialPageRoute(builder: (context) => DrawerHome()),
             (route) => false,
           );
         } else if (res['message'] != null) {
