@@ -13,7 +13,6 @@ class DrawerHome extends StatefulWidget {
 
 class _DrawerHomeState extends State<DrawerHome> {
   final UserService userService = UserService();
-  int _selectedIndex = 0;
   List<Widget> listScreen = [ProfileLimaBelas()];
 
   @override
@@ -25,73 +24,110 @@ class _DrawerHomeState extends State<DrawerHome> {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
         ),
         centerTitle: true,
-        backgroundColor: Colors.tealAccent,
+        backgroundColor: Colors.yellow,
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.all(12),
-          children: [
-            FutureBuilder<DataProfile>(
-              future: userService.profileUser(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Center(
-                    child: Text('Terjadi Kesalahan: ${snapshot.error}'),
-                  );
-                } else if (!snapshot.hasData) {
-                  return Center(child: Text('Tidak ada data profile'));
-                }
-
-                final profile = snapshot.data!;
-                return Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 40),
-                      CircleAvatar(radius: 60, child: Text('${profile.id}')),
-                      SizedBox(height: 16),
-                      Text('${profile.name}'),
-                      ListTile(
-                        leading: Icon(Icons.manage_accounts_sharp),
-                        title: Text('Profile'),
-                        onTap: () {
-                          setState(() {
-                            _selectedIndex = 0;
-                          });
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ProfileLimaBelas(),
-                            ),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 4),
-                      ListTile(
-                        leading: Icon(Icons.logout),
-                        title: Text('Logout'),
-                        onTap: () {
-                          Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginLimaBelas(),
-                            ),
-                            (route) => false,
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              },
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.yellow, Colors.white70],
             ),
+          ),
+          child: ListView(
+            padding: EdgeInsets.all(12),
+            children: [
+              FutureBuilder<DataProfile>(
+                future: userService.profileUser(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Terjadi Kesalahan: ${snapshot.error}'),
+                    );
+                  } else if (!snapshot.hasData) {
+                    return Center(child: Text('Tidak ada data profile'));
+                  }
+
+                  final profile = snapshot.data!;
+                  return Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 40),
+                        CircleAvatar(radius: 60, child: Text('${profile.id}')),
+                        SizedBox(height: 16),
+                        Text('${profile.name}'),
+                        ListTile(
+                          leading: Icon(Icons.home),
+                          title: Text('Beranda'),
+                          onTap: () {
+                            setState(() {});
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DrawerHome(),
+                              ),
+                            );
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.manage_accounts_sharp),
+                          title: Text('Profile'),
+                          onTap: () {
+                            setState(() {});
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfileLimaBelas(),
+                              ),
+                            );
+                          },
+                        ),
+                        SizedBox(height: 4),
+                        ListTile(
+                          leading: Icon(Icons.logout),
+                          title: Text('Logout'),
+                          onTap: () {
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginLimaBelas(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.yellow, Colors.white70],
+          ),
+        ),
+        child: Stack(
+          children: [
+            Column(children: [SizedBox(height: 28), Text('selamat datang')]),
           ],
         ),
       ),
-      body: Column(children: [Text('selamat datang')]),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:bayuppkd_b_2/Tugas_15/database_15/sharedpreference.dart';
+import 'package:bayuppkd_b_2/Tugas_15/models/edit_error.dart';
+import 'package:bayuppkd_b_2/Tugas_15/models/edit_profile.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/get_profile.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/login_error.dart';
 import 'package:bayuppkd_b_2/Tugas_15/models/login_model.dart';
@@ -76,6 +78,29 @@ class UserService {
       return getprofile.data!;
     } else {
       throw Exception('Failed to load users');
+    }
+  }
+
+  Future<Map<String, dynamic>> editUser(String name, String email) async {
+    final token = await SharedPrefService.getToken();
+
+    if (token == null) {
+      throw Exception('Token tidak di temukan. Login terlebih dahulu');
+    }
+    final response = await http.put(
+      Uri.parse("https://absen.quidi.id/api/profile"),
+      headers: {'Accept': 'application/json', 'Authorization': 'Bearer $token'},
+      body: {'name': name, 'email': email},
+    );
+
+    if (response.statusCode == 200) {
+      return editProfileFromJson(response.body).toJson();
+    } else if (response.statusCode == 401) {
+      return editErrorFromJson(response.body).toJson();
+    } else if (response.statusCode == 422) {
+      return editErrorFromJson(response.body).toJson();
+    } else {
+      throw Exception('Gagal Menemukan Akun ${response.statusCode}');
     }
   }
 }

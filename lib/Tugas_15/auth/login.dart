@@ -72,30 +72,7 @@ class LoginLimaBelas extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 80),
-                TextFormField(
-                  controller: _userController,
-                  decoration: InputDecoration(
-                    hintText: "Nama",
-                    hintStyle: TextStyle(color: Color(0xff333333)),
-                    prefixIcon: Icon(Icons.people_alt_rounded),
-                    filled: true,
-                    fillColor: Color(0xFFE6F0EA),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
-                        color: Color(0xff789262),
-                        width: 1,
-                      ),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'nama wajib di isi';
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(height: 20),
+
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
